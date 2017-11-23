@@ -42,7 +42,10 @@ export class HomeComponent implements OnInit {
 
   Delete(id) {
     this._myService.deletePoll(id, (res) => {
-      this._router.navigate(['/home']);
+      this._myService.getPolls((polls) => {
+        this.polls = polls;
+      });
+      // this._router.navigate(['/home']);
     });
   }
 

@@ -27,8 +27,10 @@ export class PollShowComponent implements OnInit {
   Vote(id, idx) {
     this.poll.options[idx].vote += 1;
     this._myService.updateVote(id, this.poll.options, (res) => {
-      this.poll = res;
-      this._router.navigate(['/dashboard']);
+      this._myService.getPollByID(id, (poll) => {
+        this.poll = poll;
+      });
+      // this._router.navigate(['/dashboard']);
     });
   }
 }

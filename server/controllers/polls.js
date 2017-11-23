@@ -73,7 +73,8 @@ module.exports = {
                 console.log('In pollss.destroy - something went wrong when deleting');
             } else {
                 console.log('In polls.destroy - successfully deleted a poll!');
-                res.json('success');
+                res.json(results);
+                // res.redirect('/polls/'+ req.params.id);
             }
         })
     }
